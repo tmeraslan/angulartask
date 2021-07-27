@@ -1,0 +1,19 @@
+
+<h4>Details (show 2 stocks)</h4>
+<br>
+
+<table class="table table-bordered"> 
+        <tr>
+          <th *ngFor = "let column of headers">
+            {{column}}
+          </th>
+        </tr>
+      
+        <tr *ngFor = "let row of rows">
+          
+          <td *ngFor = "let column of headers">
+            {{row[column]}}
+      
+          </td>
+        </tr>
+      </table>

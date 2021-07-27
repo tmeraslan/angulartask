@@ -9,6 +9,10 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import {Routes, RouterModule} from '@angular/router';
 import { HighChartComponent } from './high-chart/high-chart.component';
+import {HighchartsChartModule} from 'highcharts-angular';
+import { TableComponent } from './table/table.component';
+
+
 
 
 
@@ -17,12 +21,14 @@ import { HighChartComponent } from './high-chart/high-chart.component';
     AppComponent,
     PieChartComponent,
     BarChartComponent,
-    HighChartComponent
+    HighChartComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ChartsModule
+    ChartsModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

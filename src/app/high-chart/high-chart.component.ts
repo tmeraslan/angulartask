@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import* as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-high-chart',
@@ -12,4 +13,13 @@ export class HighChartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+    Highcharts: typeof Highcharts = Highcharts;
+  chartOptions: Highcharts.Options = {
+    series: [{
+      data: [9,7],
+      type: 'column'
+      
+    }]
+  };
 }

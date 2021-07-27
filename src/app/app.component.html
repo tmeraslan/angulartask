@@ -1,22 +1,22 @@
-
-
-<h4>Details (show 2 stocks)</h4>
-<hr>
-
-<table>
-  <tr>
-    <th *ngFor = "let column of headers">
-      {{column}}
-    </th>
-  </tr>
-
-  <tr *ngFor = "let row of rows">
+<br>
+<form >
+    <div>
+      <label>Stocks :</label>
+      <input type = "text" placeholder="Enter Symbol" name = "symbol"/>
+    </div>
     
-    <td *ngFor = "let column of headers">
-      {{row[column]}}
 
-    </td>
-  </tr>
-</table>
+  </form>
+<br>
+  <button (click) = "getAxiosData()">Use axios to request data</button>
+  <br>
+
+<br>
+
+<app-table></app-table>
 
 <app-bar-chart></app-bar-chart>
+
+
+
+
