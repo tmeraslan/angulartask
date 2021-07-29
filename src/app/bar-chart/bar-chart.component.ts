@@ -52,15 +52,10 @@ export class BarChartComponent implements OnInit {
       return [];
     }
 
-    for(const index in stockList) {
-      if(Number(index) < 6){
-        const stockItem = stockList[index];
+    const data = stockList.filter((stock,index)=> index < 6);
+    for(let stockItem of data) {
         const dataEntry = { data: [this.getChangeFromYearLow(stockItem), this.getChangeFromYearHigh(stockItem)], label: stockItem.symbol }
         this.barChartData.push(dataEntry);
-      } else {
-        break;
-      }
-     
     }
 
   }
@@ -89,3 +84,16 @@ export class BarChartComponent implements OnInit {
 
 
 }
+
+
+
+// for(const index in stockList) {
+//   if(Number(index) < 6){
+//     const stockItem = stockList[index];
+//     const dataEntry = { data: [this.getChangeFromYearLow(stockItem), this.getChangeFromYearHigh(stockItem)], label: stockItem.symbol }
+//     this.barChartData.push(dataEntry);
+//   } else {
+//     break;
+//   }
+ 
+// }
