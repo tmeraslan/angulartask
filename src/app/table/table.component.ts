@@ -23,22 +23,3 @@ export  class TableComponent implements OnInit {
 }
 
 
-
-// {
-//   "Symbol":"RR",
-//   "Name":"name1",
-//   "Previous":"fd",
-//   "Year Low":"1",
-//   "Year High":"11",
-//   "Change From YearLow":"434",
-//   "Change From YearHigh":"4554"
-// },
-// {
-//   "Symbol":"AA",
-//   "Name":"name2",
-//   "Previous":"fd2",
-//   "Year Low":"22",
-//   "Year High":"222",
-//   "Change From YearLow":"3435",
-//   "Change From YearHigh":"5454"
-// },

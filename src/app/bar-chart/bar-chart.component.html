@@ -6,7 +6,7 @@
 <div style="display: block"  >
         <div style=" width: 50%; display: block"  >
 
-          <canvas width="30" height="30"
+          <canvas *ngIf="hasValues(barChartData)" width="30" height="30"
                   baseChart
                   [datasets]="barChartData" 
                   [labels]="barChartLabels"
@@ -18,5 +18,5 @@
       </div>
 
       <br>
-  <button (click) = "click()">Use axios to request data</button>
+  <button >Use axios to request data</button>
   <br>

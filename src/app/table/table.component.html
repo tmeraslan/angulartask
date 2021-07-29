@@ -3,13 +3,13 @@
 <br>
 
 <table class="table table-bordered"> 
-        <tr>
+        <tr >
           <th *ngFor = "let column of headers">
             {{column}}
           </th>
         </tr>
       
-        <tr *ngFor = "let row of StockList">
+        <tr *ngFor = "let row of StockList"  >
           
           <td>
             {{row.symbol}}
@@ -31,11 +31,11 @@
                     {{row.fiftyTwoWeekHigh}}
               
                   </td>
-                  <td>
+                  <td [ngStyle]="{'color': row.fiftyTwoWeekLowChange > 0 ? 'green' : 'red'} ">
                       {{row.fiftyTwoWeekLowChange}}
                 
                     </td>
-                    <td>
+                    <td [ngStyle]="{'color': row.fiftyTwoWeekHighChange > 0 ?  'green' : 'red'} ">
                         {{row.fiftyTwoWeekHighChange}}
                   
                       </td>
