@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-bar-chart',
@@ -7,19 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarChartComponent implements OnInit {
 
-  constructor() { }
+  @Input() StockList: any=[0];
+  
+  a =this.StockList[0].fiftyDayAverageChange;
+   
+  constructor() { 
+    
+
+  }
+  
+  
+
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels = ['2000', '2001'];
+  public barChartLabels = ['YearHighDiff', 'yearLowDiff'];
   public barChartType = 'bar';
   public barChartLegend = true;
+
   public barChartData = [
-    {data: [-75,-49], label: 'Series A'},
-    {data: [48, 38], label: 'Series B'}
+    {data: [55,44], label: 'Series A'},
+    {data: [23, 38], label: 'Series B'}
   ];
   ngOnInit(): void {
   }
+
+  click(){
+    console.log(this.StockList[0].fiftyDayAverageChange);
+    console.log(this.a);
+  
+  }
+
 
 }

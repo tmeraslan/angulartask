@@ -9,11 +9,35 @@
           </th>
         </tr>
       
-        <tr *ngFor = "let row of rows">
+        <tr *ngFor = "let row of StockList">
           
-          <td *ngFor = "let column of headers">
-            {{row[column]}}
+          <td>
+            {{row.symbol}}
       
           </td>
+          <td>
+              {{row.shortName}}
+        
+            </td>
+            <td>
+                {{row.regularMarketPreviousClose}}
+          
+              </td>
+              <td>
+                  {{row.fiftyTwoWeekLow}}
+            
+                </td>
+                <td>
+                    {{row.fiftyTwoWeekHigh}}
+              
+                  </td>
+                  <td>
+                      {{row.fiftyTwoWeekLowChange}}
+                
+                    </td>
+                    <td>
+                        {{row.fiftyTwoWeekHighChange}}
+                  
+                      </td>
         </tr>
       </table>

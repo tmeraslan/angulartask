@@ -11,6 +11,9 @@ import {Routes, RouterModule} from '@angular/router';
 import { HighChartComponent } from './high-chart/high-chart.component';
 import {HighchartsChartModule} from 'highcharts-angular';
 import { TableComponent } from './table/table.component';
+import {SharedService} from './shared.service';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -28,9 +31,12 @@ import { TableComponent } from './table/table.component';
     BrowserModule,
     AppRoutingModule,
     ChartsModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,21 +1,21 @@
 <br>
-<form >
-    <div>
-      <label>Stocks :</label>
-      <input type = "text" placeholder="Enter Symbol" name = "symbol"/>
+<div class="form=froup row">
+    <label class="col-sm-1 col-form-label">Stocks</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" [(ngModel)]="StockName" 
+      placeholder="Enter Stocks">
     </div>
-    
-
-  </form>
+</div>
+<h4> {{StockName}} </h4>
 <br>
-  <button (click) = "getAxiosData()">Use axios to request data</button>
+  <button (click) = "click()">Use axios to request data</button>
   <br>
 
 <br>
 
-<app-table></app-table>
+<app-table [StockList]=StockList ></app-table>
 
-<app-bar-chart></app-bar-chart>
+<app-bar-chart  [StockList]=StockList ></app-bar-chart>
 
 
 
