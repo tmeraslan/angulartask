@@ -1,7 +1,10 @@
-import { Component, OnInit, Input, Injectable } from '@angular/core';
+
+
+// this component takes care  of drawing the graph
+
+import { Component, OnInit, Input } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
-import { from, Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-bar-chart',
@@ -13,16 +16,17 @@ import { filter } from 'rxjs/operators';
 export class BarChartComponent implements OnInit {
 
 
-  // a =this.StockList[0].fiftyDayAverageChange; 
+  
   constructor(private service: SharedService) { }
 
-  @Input() StockName = '';
-  @Input() StockList: any = [0];
+  @Input() StockName = ''; //the stockSymbole name we get from father component
+  @Input() StockList: any = [0]; // all the stocks
 
-  ChangeFromYearLow: any = 0;
-  ChangeFromYearHigh: any = 0;
+  ChangeFromYearLow: any = 0; //partmers we caluculate and sent to the graph
+  ChangeFromYearHigh: any = 0; //partmers we caluculate and sent to the graph
   stop: any;
 
+  //builed the graph
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -36,6 +40,8 @@ export class BarChartComponent implements OnInit {
     { data: [this.ChangeFromYearLow, this.ChangeFromYearHigh], label: this.getSymbol(this.StockList) }
   ];
 
+
+
   ngOnInit() {
    this.service.stockListObs()
    .subscribe(stockList => {
@@ -46,6 +52,9 @@ export class BarChartComponent implements OnInit {
   ngOnDestroy() {
   }
 
+
+
+//function send to tha graph a data
   private buildGraph(stockList: any[]) {
     this.barChartData = [];
     if (!stockList) {
@@ -60,14 +69,17 @@ export class BarChartComponent implements OnInit {
 
   }
 
+  //caluculate the parmters to the graph
   private getChangeFromYearLow(stockItem: any): number {
     return (stockItem.regularMarketPreviousClose - stockItem.fiftyTwoWeekLow) * 100 / stockItem.fiftyTwoWeekLow;
   }
 
+  //caluculate the parmters to the graph
   private getChangeFromYearHigh(stockItem: any): number { 
     return (stockItem.regularMarketPreviousClose - stockItem.fiftyTwoWeekHigh) * 100 / stockItem.fiftyTwoWeekLow;
   }
 
+  //get the Stock Symbole
   private getSymbol(stockList: any[]): string {
     if (!stockList || stockList.length === 0) {
       return ''
@@ -75,6 +87,7 @@ export class BarChartComponent implements OnInit {
     return stockList[0].symbol;
   }
 
+  //check if there are values to buield thr graph
   public hasValues(chartArray: any[]): boolean  {
     if (!chartArray || chartArray.length === 0) {
       return false;
@@ -85,15 +98,3 @@ export class BarChartComponent implements OnInit {
 
 }
 
-
-
-// for(const index in stockList) {
-//   if(Number(index) < 6){
-//     const stockItem = stockList[index];
-//     const dataEntry = { data: [this.getChangeFromYearLow(stockItem), this.getChangeFromYearHigh(stockItem)], label: stockItem.symbol }
-//     this.barChartData.push(dataEntry);
-//   } else {
-//     break;
-//   }
- 
-// }

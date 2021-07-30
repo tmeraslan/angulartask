@@ -1,3 +1,5 @@
+// this component takes care  of drawing the Table
+
 import { Component, OnInit,Input } from '@angular/core';
 
 

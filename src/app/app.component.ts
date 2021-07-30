@@ -4,10 +4,6 @@ import {SharedService} from 'src/app/shared.service';
 import { FormGroup, FormControl } from '../../node_modules/@angular/forms';
 
 
-
-interface DATA {
-  
-}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,15 +16,17 @@ export class AppComponent implements OnInit {
   StockName = '';
   stop:any;
   StockList: any;
+  insertstockForm:any;
 
   ngOnInit() {
+    
     this.reactiveForm = new FormGroup({
       stockName: new FormControl('', [])
     })
 
     this.reactiveForm.get("stockName").valueChanges.subscribe(selectedValue => {
       if (selectedValue) {
-        this.service.getDepList(selectedValue)
+        this.service.getStocks(selectedValue)
           .subscribe(data =>{
             this.StockList =  data.quoteResponse.result;
           
